@@ -1,38 +1,40 @@
+import styled from 'styled-components'
+
 function Photo(props){
     const {title,photoUrl,date,author,description} = props;
 
-    const cardStyle = {
-        display:'flex',
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'flex-start',
-        boxShadow:"0px 0px 10px grey",
-        margin:"10px"
-    }
+    const Card = styled.div `
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:flex-start;
+        box-shadow:0px 0px 10px grey;
+        margin:10px;
+    `
 
-    const imgStyle = {
-        width:"512px",
-        height:'288px',
-        backgroundImage:`url(${photoUrl})`,
-        backgroundSize:'cover'
-    }
+    const ImgContainer = styled.div`
+        width:512px;
+        height:288px;
+        background-image:url(${photoUrl});
+        background-size:cover;
+    `
 
-    const infoStyle = {
-        marginLeft:'15px'
-    }
+    const InfoContainer = styled.div`
+        margin-left:15px;
+    `
 
     return (
-        <div className="card" style={cardStyle}>
-            <div style={imgStyle} className="imgContainer">
+        <Card>
+            <ImgContainer>
                 
-            </div>
-            <div style={infoStyle} className="infoContainer">
+            </ImgContainer>
+            <InfoContainer>
                 <h1>{title}</h1>
                 <h2>{author}</h2>
                 <h3>{date}</h3>
                 <p>{description}</p>
-            </div>
-        </div>
+            </InfoContainer>
+        </Card>
     )
 }
 

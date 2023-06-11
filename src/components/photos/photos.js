@@ -1,20 +1,21 @@
 import Photo from './photo'
+import styled from 'styled-components'
 
 function Photos(props){
     const {photos} = props;
     
-    const style = {
-        marginTop:'100px'
-    }
+    const PhotoContainer = styled.div`
+        margin-top:100px;
+    `
 
     return (
-        <div style={style} className="photoContainer">
+        <PhotoContainer>
             {
                 photos.map(photo=>{
                     return <Photo title={photo.alt} author={photo.photographer} photoUrl={photo.src.medium} date={photo.date} description={photo.description}/>
                 })
             }
-        </div>
+        </PhotoContainer>
     )
 }
 
